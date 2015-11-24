@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <STYLE>body {
+        font-family: Arial
+    }
+    a {
+        color: #00f
+    }</STYLE>
+    <SCRIPT>function listbox_move(listID, direction) {
+        var listbox = document.getElementById(listID);
+        var selIndex = listbox.selectedIndex;
+        if (-1 == selIndex) {
+            alert("Please select an option to move.");
+            return;
+        }
+        var increment = -1;
+        if (direction == 'up')
+            increment = -1; else
+            increment = 1;
+        if ((selIndex + increment) < 0 || (selIndex + increment) > (listbox.options.length - 1)) {
+            return;
+        }
+        var selValue = listbox.options[selIndex].value;
+        var selText = listbox.options[selIndex].text;
+        listbox.options[selIndex].value = listbox.options[selIndex + increment].value
+        listbox.options[selIndex].text = listbox.options[selIndex + increment].text
+        listbox.options[selIndex + increment].value = selValue;
+        listbox.options[selIndex + increment].text = selText;
+        listbox.selectedIndex = selIndex + increment;
+    }
+    function listbox_moveacross(sourceID, destID) {
+        var src = document.getElementById(sourceID);
+        var dest = document.getElementById(destID);
+        for (var count = 0; count < src.options.length; count++) {
+            if (src.options[count].selected == true) {
+                var option = src.options[count];
+                var newOption = document.createElement("option");
+                newOption.value = option.value;
+                newOption.text = option.text;
+                newOption.selected = true;
+                try {
+                    dest.add(newOption, null);
+                    src.remove(count, null);
+                } catch (error) {
+                    dest.add(newOption);
+                    src.remove(count);
+                }
+                count--;
+            }
+        }
+    }
+    function listbox_selectall(listID, isSelect) {
+        var listbox = document.getElementById(listID);
+        for (var count = 0; count < listbox.options.length; count++) {
+            listbox.options[count].selected = isSelect;
+        }
+    }</SCRIPT>
+
+</head>
+<body>
+<table>
+    <tr valign="top">
+        <td>
+            <SELECT id="s" size="10" multiple>
+                <OPTION value="a">ADARSH</OPTION>
+                <OPTION value="b">AMIT</OPTION>
+                <OPTION value="c">RADHA</OPTION>
+                <OPTION value="d">SONU</OPTION>
+                <OPTION value="e">MONU</OPTION>
+                <OPTION value="f">KUMAR</OPTION>
+                <OPTION value="g">SINGH</OPTION>
+                <OPTION value="h">USHA</OPTION>
+                <OPTION value="i">NIRANJAN</OPTION>
+            </SELECT>
+        </td>
+        <td valign="center">
+            <a href="#" onclick="listbox_moveacross('s', 'd')">RIGHT &nbsp; &gt;&gt;</a>
+            <br/>
+            <a href="#" onclick="listbox_moveacross('d', 's')">LEFT &nbsp; &lt;&lt;</a>
+
+            <br/>
+            <a href="#" onclick="listbox_move('s', 'up')">MOVE UP</a>,
+            <br/>
+             <a href="#" onclick="listbox_move('s', 'down')">MOVE DOWN</a>
+            <br/>
+            <a href="#" onclick="listbox_selectall('s', true)">SELECT ALL</a>,
+            <br/>
+            <a href="#" onclick="listbox_selectall('s', false)">DESELECT ALL</a>
+            <br/>
+        </td>
+        <td>
+            <SELECT id="d" size="10" multiple>
+                <OPTION value="a">ADARSH</OPTION>
+                <OPTION value="b">AMIT</OPTION>
+                <OPTION value="c">RADHA</OPTION>
+                <OPTION value="d">SONU</OPTION>
+                <OPTION value="e">MONU</OPTION>
+                <OPTION value="f">KUMAR</OPTION>
+                <OPTION value="g">SINGH</OPTION>
+                <OPTION value="h">USHA</OPTION>
+                <OPTION value="i">NIRANJAN</OPTION>
+            </SELECT>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
