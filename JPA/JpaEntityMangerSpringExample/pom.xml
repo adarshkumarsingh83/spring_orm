@@ -59,7 +59,7 @@
         <mysql.connector.version>5.1.16</mysql.connector.version>
         <hibernate.entitymanager.version>4.3.5.Final</hibernate.entitymanager.version>
         <hibernate.jpa-api.version>2.0-cr-1</hibernate.jpa-api.version>
-        <spring.data.jpa.version>1.8.0.RC1</spring.data.jpa.version>
+        <spring.data.jpa.version>1.11.23.RELEASE</spring.data.jpa.version>
         <c3p0.version>0.9.1.2</c3p0.version>
         <org.slf4j.version>1.7.6</org.slf4j.version>
     </properties>
