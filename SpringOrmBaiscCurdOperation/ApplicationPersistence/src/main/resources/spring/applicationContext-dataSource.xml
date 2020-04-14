@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+
+        <property name="initialPoolSize" value="${dataSource.initialPoolSize}"/>
+        <property name="minPoolSize" value="${dataSource.minPoolSize}"/>
+        <property name="maxPoolSize" value="${dataSource.maxPoolSize}"/>
+        <property name="acquireIncrement" value="${dataSource.acquireIncrement}"/>
+
+        <property name="maxIdleTime" value="${dataSource.maxIdleTime}"/>
+
+        <property name="checkoutTimeout" value="${dataSource.checkoutTimeout}"/>
+
+        <property name="maxStatements" value="${dataSource.maxStatements}"/>
+
+        <property name="idleConnectionTestPeriod" value="${dataSource.idleConnectionTestPeriod}"/>
+
+        <property name="preferredTestQuery" value="SELECT 1"/>
+
+        <property name="testConnectionOnCheckout" value="${dataSource.testConnectionOnCheckout}"/>
+
+        <property name="driverClass" value="${dataSource.driverClass}"/>
+        <property name="jdbcUrl" value="${dataSource.url}"/>
+        <property name="user" value="${dataSource.username}"/>
+        <property name="password" value="${dataSource.password}"/>
+
+    </bean>
+
+</beans>
