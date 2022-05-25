@@ -55,7 +55,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.7</java.version>
         <junit.version>4.11</junit.version>
-        <spring.core.version>4.1.5.RELEASE</spring.core.version>
+        <spring.core.version>5.2.22.RELEASE</spring.core.version>
         <mysql.connector.version>5.1.16</mysql.connector.version>
         <hibernate.entitymanager.version>4.3.5.Final</hibernate.entitymanager.version>
         <hibernate.jpa-api.version>2.0-cr-1</hibernate.jpa-api.version>
